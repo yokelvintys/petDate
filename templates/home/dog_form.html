@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="utf-8">
+            <title>Add Pet</title>
+        
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            {% load static %}
+                <link rel="stylesheet" type="text/css" href="{% static 'homePage/style.css'%}">
+    </head>
+    <body>
+            <div class="container">
+                        <nav class="navbar navbar-light bg-light">
+                                        <a class="navbar-brand" href="{%url 'home'%}">
+                                          PetDate
+                                        </a>
+                                      </nav>
+                <form method="post" enctype="multipart/form-data" id="createFrom">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Submit">
+                </form>
+
+                    
+            </div>
+    </body>
+</html>

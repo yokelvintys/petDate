@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pet Dating</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'homePage/style.css'%}">
+  
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        PetDate
+      </a>
+      <button><a href="{% url 'addDog' %}">ADD</a></button>
+    </nav>
+
+    <div class="content">
+      {% for dog in object_list %}
+      <div class="dog">
+        <a href="/{{dog.id}}"><img src="{{ dog.photo.url }}" alt="{{dog.name}}" width="200px"></a>
+        <p>{{dog.name}} from {{dog.location}}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

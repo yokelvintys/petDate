@@ -1,0 +1,14 @@
+.content{
+    margin-top: 31px;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.dog img{
+    width: 200px;
+}
+
+.dog{
+    margin-bottom:20px ;
+}

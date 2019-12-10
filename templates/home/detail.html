@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pet Dating</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'homePage/style.css'%}">
+  
+  </head>
+  <body>
+        <div class="container emp-profile">
+                <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand" href="{%url 'home'%}">
+                          PetDate
+                        </a>
+                      </nav>
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="profile-img">
+                                <img src="{{ dog.photo.url }}" alt="" width="200px"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="profile-head">
+                                        <h5>
+                                            {{dog.name}}
+                                        </h5>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                                <form></form>
+                                <form action="{% url 'editDog' pk=dog.id %}" method="post">{% csrf_token %}<button type="submit">EDIT</button></form>
+                                <form action="{% url 'deleteDog' pk=dog.id %}" method="post">{% csrf_token %}<button type="submit">DELETE</button></form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="tab-content profile-tab" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Breed</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{dog.breed}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Name</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{dog.name}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Age</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{dog.age}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Location</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{dog.location}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Favourite Food</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>{{dog.favourite_food}}</p>
+                                                </div>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><h1>Contact Info</h1></div>
+                        <div class="col-md-12"><h2>Owner's Name: {{dog.owner_name}}</h2></div>
+                        <div class="col-md-12"><p>{{dog.owner_contact_info}}</p></div>
+                    </div>
+                    <div class="row">
+                        {%if father%}
+                        <div class="col-md-6">
+                            <h3>Father</h3>
+                            <p>{{father.name}}</p>
+                            <div class="dog">
+                                <a href="/{{father.id}}"><img src="{{ father.photo.url }}" alt="{{father.name}}" width="200px"></a>
+                            </div>
+                        </div>
+                        {%endif%}
+                        {%if mother%}
+                        <div class="col-md-6">
+                                <h3>Mother</h3>
+                                <p>{{mother.name}}</p>
+                                <div class="dog">
+                                    <a href="/{{mother.id}}"><img src="{{ mother.photo.url }}" alt="{{mother.name}}" width="200px"></a>
+                                </div>
+                        </div>
+                        {%endif%}
+                    </div>
+                </form>           
+            </div>
+  </body>
+</html>
