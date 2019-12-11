@@ -16,7 +16,8 @@ def detail(request, dog_id):
     context = {
         'dog': dog,
         'father': dog.father,
-        'mother': dog.mother
+        'mother': dog.mother,
+        'owner': dog.owner
     }
     return HttpResponse(template.render(context, request))
 

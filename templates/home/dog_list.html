@@ -24,7 +24,7 @@
       {% for dog in object_list %}
       <div class="dog">
         <a href="/{{dog.id}}"><img src="{{ dog.photo.url }}" alt="{{dog.name}}" width="200px"></a>
-        <p>{{dog.name}} from {{dog.location}}</p>
+        <p>{{dog.name}} from {{dog.owner.location}}</p>
       </div>
       {% endfor %}
     </div>

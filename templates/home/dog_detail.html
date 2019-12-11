@@ -44,7 +44,7 @@
                 <h2>{{dog.breed}}</h2>
                 <div class="meta">
                     <p>{{dog.age}} years old</p>
-                    <p><i class="fa fa-fw fa-map-marker"></i> {{dog.location}}</p>
+                    <p><i class="fa fa-fw fa-map-marker"></i> {{dog.owner.location}}</p>
                     <p><i class="fa fa-fw fa-link"></i>Love to eat {{dog.favourite_food}}</p>
                 </div>
               </section>
@@ -61,8 +61,11 @@
                 </nav>
                 
                 <div id="ownerInfo" class="owner_info">
-                    <h1>Owner: {{dog.owner_name}}</h1>
-                    <div class="contact_info">{{dog.owner_contact_info}}</div>
+                    <h1>Owner: {{dog.owner.name}}</h1>
+                    <h4 class="contact_info">Phone: {{dog.owner.phone}}</h4>
+                    <h4>Email: {{dog.owner.email}}</h4>
+                    <div class="msgBox"><p>{{dog.owner.msg}}</p></div>
+                    
                 </div>
 
                 <div id="familyInfo" class="family_info">

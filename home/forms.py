@@ -10,4 +10,4 @@ class DogForm(ModelForm):
 class UpdateForm(ModelForm):
     class Meta:
         model = Dog
-        fields = ['photo', 'age', 'location', 'favourite_food']
+        fields = ['photo', 'age', 'favourite_food']
